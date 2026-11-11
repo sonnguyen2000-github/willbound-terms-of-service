@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Privacy Policy — Willbound</title>
+    <link rel="icon" type="image/png" href="./app_icon.png">
+    <style>
+        :root {
+            --bg-primary: #0b1623;
+            --bg-secondary: #122236;
+            --bg-card: rgba(18, 34, 54, 0.85);
+            --text-primary: #f0f6fc;
+            --text-secondary: #9bb1c9;
+            --text-muted: #6e87a2;
+            --accent: #1d9bf0;
+            --accent-light: #5ac8fa;
+            --accent-glow: rgba(29, 155, 240, 0.2);
+            --border-color: rgba(90, 200, 250, 0.16);
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: radial-gradient(circle at 50% 0%, #173250 0%, var(--bg-primary) 70%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Subtle vertical stripes inspired by app icon */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: repeating-linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0.025) 0px,
+                rgba(255, 255, 255, 0.025) 1px,
+                transparent 1px,
+                transparent 28px
+            );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(11, 22, 35, 0.82);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-inner {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .brand-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: #ffffff;
+        }
+
+        .brand-tagline {
+            font-size: 0.78rem;
+            color: var(--accent-light);
+            font-weight: 500;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .doc-links {
+            display: flex;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 4px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .doc-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 7px;
+            transition: all 0.2s ease;
+        }
+
+        .doc-link:hover {
+            color: var(--text-primary);
+        }
+
+        .doc-link.active {
+            background: var(--accent-glow);
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+
+        .lang-switch {
+            display: inline-flex;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 3px;
+        }
+
+        .lang-btn {
+            appearance: none;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 6px 11px;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--accent), #0077cc);
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(29, 155, 240, 0.35);
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            max-width: 920px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 36px 20px 64px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 32px;
+            padding: 28px 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 16px;
+            margin-bottom: 14px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-size: clamp(1.65rem, 3.5vw, 2.25rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .content-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow);
+        }
+
+        section {
+            margin-bottom: 28px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        section:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 1.22rem;
+            font-weight: 700;
+            color: var(--accent-light);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        p {
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-size: 0.97rem;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul {
+            margin: 10px 0 12px 22px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            color: #ffffff;
+        }
+
+        .callout {
+            background: rgba(29, 155, 240, 0.09);
+            border-left: 3px solid var(--accent-light);
+            padding: 14px 16px;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: 14px 0;
+            font-size: 0.94rem;
+            color: var(--text-primary);
+        }
+
+        a.inline-link {
+            color: var(--accent-light);
+            text-decoration: none;
+            border-bottom: 1px dashed rgba(90, 200, 250, 0.5);
+        }
+
+        a.inline-link:hover {
+            color: #ffffff;
+            border-bottom-style: solid;
+        }
+
+        footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid var(--border-color);
+            background: rgba(11, 22, 35, 0.9);
+            padding: 24px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.86rem;
+        }
+
+        .footer-links {
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-light);
+        }
+
+        [data-lang] {
+            display: none;
+        }
+
+        html[lang="en"] [data-lang="en"],
+        html[lang="vi"] [data-lang="vi"] {
+            display: block;
+        }
+
+        html[lang="en"] span[data-lang="en"],
+        html[lang="vi"] span[data-lang="vi"] {
+            display: inline;
+        }
+
+        @media (max-width: 640px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .nav-controls {
+                justify-content: space-between;
+            }
+            .content-card {
+                padding: 22px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a class="brand" href="./privacy_policy.html" id="brand-link">
+                <img class="brand-icon" src="./app_icon.png" alt="Willbound Icon">
+                <div class="brand-text">
+                    <span class="brand-name">Willbound</span>
+                    <span class="brand-tagline" data-lang="en">Focus &amp; Screen Time Control</span>
+                    <span class="brand-tagline" data-lang="vi">Tập trung &amp; Kiểm soát thời gian màn hình</span>
+                </div>
+            </a>
+            <div class="nav-controls">
+                <nav class="doc-links" aria-label="Legal documents">
+                    <a class="doc-link active" id="nav-privacy" href="./privacy_policy.html">
+                        <span data-lang="en">Privacy Policy</span>
+                        <span data-lang="vi">Chính sách Bảo mật</span>
+                    </a>
+                    <a class="doc-link" id="nav-terms" href="./terms.html">
+                        <span data-lang="en">Terms of Service</span>
+                        <span data-lang="vi">Điều khoản Dịch vụ</span>
+                    </a>
+                </nav>
+                <div class="lang-switch" role="group" aria-label="Language selector">
+                    <button type="button" class="lang-btn" data-set-lang="en" id="btn-lang-en">EN</button>
+                    <button type="button" class="lang-btn" data-set-lang="vi" id="btn-lang-vi">VI</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero">
+            <img class="hero-icon" src="./app_icon.png" alt="Willbound App Icon">
+            <h1 data-lang="en">Privacy Policy</h1>
+            <h1 data-lang="vi">Chính sách Bảo mật</h1>
+            <p class="hero-meta" data-lang="en">Effective Date: November 10, 2026 &bull; Last Updated: November 10, 2026</p>
+            <p class="hero-meta" data-lang="vi">Ngày có hiệu lực: 10/11/2026 &bull; Cập nhật lần cuối: 10/11/2026</p>
+        </div>
+
+        <!-- ENGLISH CONTENT -->
+        <article class="content-card" data-lang="en">
+            <section>
+                <h2>1. Introduction</h2>
+                <p>Welcome to <strong>Willbound</strong> ("we", "our", or "us"). Willbound is a focus, productivity, and screen-time management application designed to help you reduce digital distractions, schedule blocking sessions, and build mindful device habits.</p>
+                <p>This Privacy Policy explains how we collect, use, store, and protect your information when you use the Willbound mobile application and related services (collectively, the "Service").</p>
+            </section>
+
+            <section>
+                <h2>2. Information We Collect</h2>
+                <p>We adhere to a strict data-minimization principle. Depending on how you use Willbound, we process the following categories of information:</p>
+                <ul>
+                    <li><strong>Account &amp; Authentication Information:</strong> When you use the app, we authenticate your session via Firebase Authentication (including anonymous sessions, Apple Sign-In, or Google Sign-In). If you sign in with a social provider, we may receive your unique user identifier (UID), email address, and display name.</li>
+                    <li><strong>Device &amp; Technical Metadata:</strong> To deliver accurate remote configurations, push notifications, and subscription synchronization, we collect device installation identifiers (<code>device-uuid</code>), operating system version, device model, app version, language preference, and push notification tokens (FCM/APNs).</li>
+                    <li><strong>Focus &amp; Blocking Activity Logs:</strong> Your daily schedules, Deep Focus timers, and app selection rules operate primarily on your local device. To support session recovery and account synchronization, the app may synchronize structured blocking journal events (such as event ID, sequence, occurrence timestamp, and session/schedule identifiers).</li>
+                    <li><strong>Subscription &amp; Purchase Records:</strong> When you purchase a Willbound Pro subscription via the Apple App Store or Google Play Store, we process encrypted transaction receipts, original transaction identifiers, and subscription expiration status to verify and maintain your Pro entitlement across devices. We do not collect or store your credit card or banking details.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>3. Screen Time, Accessibility &amp; Device Permissions</h2>
+                <p>To perform app blocking and focus enforcement, Willbound requires system-level permissions provided by your mobile operating system:</p>
+                <ul>
+                    <li><strong>iOS (Apple Screen Time / FamilyControls / DeviceActivity):</strong> Willbound uses Apple's official Screen Time APIs to restrict distracting applications during your scheduled focus sessions. App tokens provided by iOS are opaque and managed locally on your device.</li>
+                    <li><strong>Android (Usage Stats / Accessibility / Overlay Permissions):</strong> Where applicable on Android, permissions are used strictly to detect when a restricted application is opened during an active focus session and display a blocking shield.</li>
+                </ul>
+                <div class="callout">
+                    <strong>Privacy Commitment:</strong> Willbound never reads the personal content inside your other apps, never logs keystrokes, and never sells or shares your screen-time usage data with advertising networks or data brokers.
+                </div>
+            </section>
+
+            <section>
+                <h2>4. How We Use Your Information</h2>
+                <p>We use the collected information solely to:</p>
+                <ul>
+                    <li>Provide, maintain, and synchronize your focus sessions, schedules, and blocking rules;</li>
+                    <li>Verify and manage your Willbound Pro subscription entitlements and send renewal or expiration updates;</li>
+                    <li>Deliver essential app configurations, security updates, and push notifications;</li>
+                    <li>Diagnose technical issues, prevent fraud, and improve application stability and performance.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>5. Third-Party Services</h2>
+                <p>We integrate trusted third-party infrastructure providers solely to operate the Service:</p>
+                <ul>
+                    <li><strong>Google Firebase:</strong> Used for authentication (Firebase Auth) and push notification delivery (Firebase Cloud Messaging).</li>
+                    <li><strong>Apple App Store &amp; Google Play Billing:</strong> Used to process in-app purchases and verify subscription entitlements.</li>
+                </ul>
+                <p>Each third-party service processes data in accordance with its own privacy policy and platform terms.</p>
+            </section>
+
+            <section>
+                <h2>6. Data Retention &amp; Security</h2>
+                <p>We implement industry-standard security safeguards, including TLS encryption in transit, hashed device credentials, and strict access controls. Local blocking journal records acknowledged by our servers may be automatically purged from local storage after 30 days. We retain account and transaction verification records only for as long as necessary to provide the Service or comply with legal and tax obligations.</p>
+            </section>
+
+            <section>
+                <h2>7. Your Rights &amp; Choices</h2>
+                <p>Depending on your jurisdiction, you have the right to:</p>
+                <ul>
+                    <li>Access, update, or request deletion of your account information;</li>
+                    <li>Revoke Screen Time, notification, or device permissions at any time through your device's system settings;</li>
+                    <li>Use Willbound in guest/anonymous mode without linking a personal email address.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>8. Children's Privacy</h2>
+                <p>Willbound is not directed to children under the age of 13 (or the minimum legal age in your jurisdiction), and we do not knowingly collect personal data from children without verifiable parental consent.</p>
+            </section>
+
+            <section>
+                <h2>9. Changes to This Privacy Policy</h2>
+                <p>We may update this Privacy Policy from time to time to reflect product improvements or regulatory requirements. Whenever we make material changes, we will update the "Last Updated" date at the top of this page.</p>
+            </section>
+
+            <section>
+                <h2>10. Contact Us</h2>
+                <p>If you have any questions, concerns, or data requests regarding this Privacy Policy, please contact our team at:</p>
+                <p><strong>Email:</strong> <a class="inline-link" href="mailto:support@tipai.tech">support@tipai.tech</a></p>
+            </section>
+        </article>
+
+        <!-- VIETNAMESE CONTENT -->
+        <article class="content-card" data-lang="vi">
+            <section>
+                <h2>1. Giới thiệu</h2>
+                <p>Chào mừng bạn đến với <strong>Willbound</strong> ("chúng tôi"). Willbound là ứng dụng hỗ trợ tập trung, nâng cao hiệu suất và quản lý thời gian sử dụng màn hình (Screen Time), giúp bạn giảm thiểu xao nhãng kỹ thuật số, thiết lập lịch chặn ứng dụng và xây dựng thói quen sử dụng thiết bị lành mạnh.</p>
+                <p>Chính sách Bảo mật này giải thích cách chúng tôi thu thập, sử dụng, lưu trữ và bảo vệ thông tin của bạn khi bạn sử dụng ứng dụng di động Willbound và các dịch vụ liên quan (gọi chung là "Dịch vụ").</p>
+            </section>
+
+            <section>
+                <h2>2. Thông tin chúng tôi thu thập</h2>
+                <p>Chúng tôi tuân thủ nguyên tắc tối thiểu hóa dữ liệu. Tùy thuộc vào cách bạn sử dụng Willbound, chúng tôi xử lý các nhóm thông tin sau:</p>
+                <ul>
+                    <li><strong>Thông tin Tài khoản &amp; Xác thực:</strong> Khi bạn sử dụng ứng dụng, phiên làm việc được xác thực thông qua Firebase Authentication (bao gồm đăng nhập ẩn danh, Apple Sign-In hoặc Google Sign-In). Nếu bạn đăng nhập bằng tài khoản liên kết, chúng tôi có thể nhận mã định danh người dùng (UID), địa chỉ email và tên hiển thị của bạn.</li>
+                    <li><strong>Siêu dữ liệu Thiết bị &amp; Kỹ thuật:</strong> Để cung cấp cấu hình từ xa (remote config), thông báo đẩy và đồng bộ hóa gói đăng ký, chúng tôi thu thập mã định danh cài đặt thiết bị (<code>device-uuid</code>), phiên bản hệ điều hành, dòng máy, phiên bản ứng dụng, ngôn ngữ thiết bị và mã thông báo đẩy (FCM/APNs token).</li>
+                    <li><strong>Nhật ký Tập trung &amp; Chặn ứng dụng:</strong> Lịch trình hàng ngày, bộ đếm Deep Focus và thống kê của bạn được xử lý chủ yếu ngay trên thiết bị. Để hỗ trợ khôi phục phiên và đồng bộ trạng thái, ứng dụng có thể đồng bộ các sự kiện nhật ký chặn có cấu trúc (như mã sự kiện, thứ tự, thời điểm ghi nhận và mã phiên/lịch trình).</li>
+                    <li><strong>Thông tin Giao dịch &amp; Gói đăng ký (IAP):</strong> Khi bạn nâng cấp gói Willbound Pro qua Apple App Store hoặc Google Play Store, chúng tôi xử lý biên lai giao dịch mã hóa, mã giao dịch gốc (<code>originalTransactionId</code>) và thời hạn hiệu lực để xác minh quyền lợi Pro trên thiết bị của bạn. Chúng tôi không thu thập hay lưu trữ số thẻ ngân hàng của bạn.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>3. Quyền Thời gian sử dụng (Screen Time) &amp; Quyền Thiết bị</h2>
+                <p>Để thực hiện tính năng chặn ứng dụng và duy trì sự tập trung, Willbound cần bạn cấp các quyền hệ thống trên thiết bị di động:</p>
+                <ul>
+                    <li><strong>Trên iOS (Apple Screen Time / FamilyControls / DeviceActivity):</strong> Willbound sử dụng bộ API Screen Time chính thức của Apple để giới hạn các ứng dụng gây xao nhãng trong phiên tập trung. Mã nhận diện ứng dụng do iOS cung cấp được ẩn danh hóa và quản lý trực tiếp trên thiết bị của bạn.</li>
+                    <li><strong>Trên Android (Quyền Truy cập dữ liệu sử dụng / Trợ năng / Hiển thị trên ứng dụng khác):</strong> Được sử dụng duy nhất cho mục đích phát hiện khi ứng dụng bị giới hạn được mở trong phiên tập trung và hiển thị màn hình nhắc nhở chặn.</li>
+                </ul>
+                <div class="callout">
+                    <strong>Cam kết Quyền riêng tư:</strong> Willbound tuyệt đối không đọc nội dung cá nhân bên trong các ứng dụng khác của bạn, không ghi lại thao tác bàn phím, và không bao giờ bán hoặc chia sẻ dữ liệu thời gian sử dụng màn hình cho bên quảng cáo hay môi giới dữ liệu.
+                </div>
+            </section>
+
+            <section>
+                <h2>4. Cách chúng tôi sử dụng thông tin</h2>
+                <p>Chúng tôi chỉ sử dụng thông tin thu thập được cho các mục đích:</p>
+                <ul>
+                    <li>Cung cấp, duy trì và đồng bộ hóa các phiên tập trung, lịch trình và quy tắc chặn ứng dụng của bạn;</li>
+                    <li>Xác minh, duy trì quyền lợi thuê bao Willbound Pro và cập nhật trạng thái gia hạn hoặc hết hạn gói cước;</li>
+                    <li>Cung cấp cấu hình vận hành ứng dụng, bản vá bảo mật và thông báo hệ thống cần thiết;</li>
+                    <li>Chẩn đoán lỗi kỹ thuật, ngăn chặn gian lận và nâng cao độ ổn định của ứng dụng.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>5. Dịch vụ Bên thứ ba</h2>
+                <p>Chúng tôi tích hợp các nhà cung cấp hạ tầng uy tín để vận hành Dịch vụ:</p>
+                <ul>
+                    <li><strong>Google Firebase:</strong> Phục vụ xác thực người dùng (Firebase Auth) và gửi thông báo đẩy (Firebase Cloud Messaging).</li>
+                    <li><strong>Apple App Store &amp; Google Play Billing:</strong> Xử lý thanh toán trong ứng dụng và xác thực quyền lợi gói đăng ký.</li>
+                </ul>
+                <p>Mỗi dịch vụ bên thứ ba xử lý dữ liệu theo chính sách bảo mật và điều khoản nền tảng riêng của họ.</p>
+            </section>
+
+            <section>
+                <h2>6. Lưu trữ &amp; Bảo mật dữ liệu</h2>
+                <p>Chúng tôi áp dụng các biện pháp bảo mật tiêu chuẩn công nghiệp, bao gồm mã hóa đường truyền TLS, băm mật mã thông tin xác thực thiết bị (SHA-256) và kiểm soát truy cập nghiêm ngặt. Các bản ghi nhật ký chặn trên thiết bị sau khi đã đồng bộ thành công có thể được tự động dọn dẹp khỏi bộ nhớ cục bộ sau 30 ngày. Dữ liệu tài khoản và biên lai giao dịch chỉ được lưu giữ trong thời gian cần thiết để cung cấp Dịch vụ hoặc tuân thủ nghĩa vụ pháp lý.</p>
+            </section>
+
+            <section>
+                <h2>7. Quyền và Lựa chọn của bạn</h2>
+                <p>Bạn có toàn quyền kiểm soát dữ liệu của mình, bao gồm:</p>
+                <ul>
+                    <li>Yêu cầu truy cập, cập nhật hoặc xóa thông tin tài khoản của bạn;</li>
+                    <li>Thu hồi quyền Screen Time, quyền thông báo hoặc các quyền hệ thống bất cứ lúc nào trong phần Cài đặt của thiết bị;</li>
+                    <li>Sử dụng Willbound ở chế độ khách (ẩn danh) mà không cần liên kết địa chỉ email cá nhân.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>8. Quyền riêng tư của Trẻ em</h2>
+                <p>Willbound không hướng tới trẻ em dưới 13 tuổi (hoặc độ tuổi tối thiểu theo quy định pháp luật tại quốc gia của bạn) và chúng tôi không cố ý thu thập dữ liệu cá nhân của trẻ em khi chưa có sự đồng ý hợp lệ của phụ huynh hoặc người giám hộ.</p>
+            </section>
+
+            <section>
+                <h2>9. Thay đổi Chính sách Bảo mật</h2>
+                <p>Chúng tôi có thể cập nhật Chính sách Bảo mật này theo thời gian để phản ánh các tính năng mới hoặc yêu cầu pháp lý. Khi có thay đổi quan trọng, chúng tôi sẽ cập nhật mục "Cập nhật lần cuối" ở đầu trang.</p>
+            </section>
+
+            <section>
+                <h2>10. Liên hệ</h2>
+                <p>Nếu bạn có bất kỳ câu hỏi, thắc mắc hoặc yêu cầu nào liên quan đến Chính sách Bảo mật này, vui lòng liên hệ với chúng tôi qua:</p>
+                <p><strong>Email:</strong> <a class="inline-link" href="mailto:support@tipai.tech">support@tipai.tech</a></p>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="./privacy_policy.html" id="footer-privacy">
+                <span data-lang="en">Privacy Policy</span>
+                <span data-lang="vi">Chính sách Bảo mật</span>
+            </a>
+            <a href="./terms.html" id="footer-terms">
+                <span data-lang="en">Terms of Service</span>
+                <span data-lang="vi">Điều khoản Dịch vụ</span>
+            </a>
+        </div>
+        <p data-lang="en">&copy; 2026 Willbound. All rights reserved.</p>
+        <p data-lang="vi">&copy; 2026 Willbound. Bảo lưu mọi quyền.</p>
+    </footer>
+
+    <script>
+        (function () {
+            var SUPPORTED_LANGS = ['en', 'vi'];
+            var TITLES = {
+                en: 'Privacy Policy — Willbound',
+                vi: 'Chính sách Bảo mật — Willbound'
+            };
+
+            function normalizeLang(raw) {
+                if (!raw) return null;
+                var clean = String(raw).toLowerCase().trim();
+                if (clean.indexOf('vi') === 0 || clean === 'vn') return 'vi';
+                if (clean.indexOf('en') === 0) return 'en';
+                return null;
+            }
+
+            function getLangFromQuery() {
+                var search = window.location.search || '';
+                var hash = window.location.hash || '';
+                var combined = search + '&' + hash.replace(/^#/, '');
+
+                if (typeof URLSearchParams !== 'undefined') {
+                    var params = new URLSearchParams(search.replace(/^[?&]+/, ''));
+                    var qLang = normalizeLang(params.get('lang'));
+                    if (qLang) return qLang;
+                }
+
+                var match = combined.match(/(?:^|[?&])lang=([^&#]+)/i);
+                if (match && match[1]) {
+                    try {
+                        return normalizeLang(decodeURIComponent(match[1]));
+                    } catch (e) {
+                        return normalizeLang(match[1]);
+                    }
+                }
+                return null;
+            }
+
+            function detectInitialLang() {
+                var queryLang = getLangFromQuery();
+                if (queryLang) return queryLang;
+
+                try {
+                    var saved = normalizeLang(localStorage.getItem('willbound_lang'));
+                    if (saved) return saved;
+                } catch (e) {}
+
+                var navLang = normalizeLang(navigator.language || navigator.userLanguage);
+                return navLang || 'en';
+            }
+
+            function updateInternalLinks(lang) {
+                var linkIds = ['brand-link', 'nav-privacy', 'nav-terms', 'footer-privacy', 'footer-terms'];
+                for (var i = 0; i < linkIds.length; i++) {
+                    var el = document.getElementById(linkIds[i]);
+                    if (!el) continue;
+                    var baseHref = el.getAttribute('href').split('?')[0];
+                    el.setAttribute('href', baseHref + '?lang=' + lang);
+                }
+            }
+
+            function applyLanguage(lang, updateUrl) {
+                if (SUPPORTED_LANGS.indexOf(lang) === -1) {
+                    lang = 'en';
+                }
+
+                document.documentElement.setAttribute('lang', lang);
+                document.title = TITLES[lang] || TITLES.en;
+
+                var buttons = document.querySelectorAll('[data-set-lang]');
+                for (var i = 0; i < buttons.length; i++) {
+                    var btn = buttons[i];
+                    var isCurrent = btn.getAttribute('data-set-lang') === lang;
+                    btn.classList.toggle('active', isCurrent);
+                    btn.setAttribute('aria-pressed', isCurrent ? 'true' : 'false');
+                }
+
+                try {
+                    localStorage.setItem('willbound_lang', lang);
+                } catch (e) {}
+
+                updateInternalLinks(lang);
+
+                if (updateUrl && window.history && window.history.replaceState) {
+                    try {
+                        var url = new URL(window.location.href);
+                        url.searchParams.set('lang', lang);
+                        window.history.replaceState({ lang: lang }, '', url.toString());
+                    } catch (e) {}
+                }
+            }
+
+            var initialLang = detectInitialLang();
+            applyLanguage(initialLang, false);
+
+            var langButtons = document.querySelectorAll('[data-set-lang]');
+            for (var i = 0; i < langButtons.length; i++) {
+                langButtons[i].addEventListener('click', function (evt) {
+                    var targetLang = evt.currentTarget.getAttribute('data-set-lang');
+                    applyLanguage(targetLang, true);
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

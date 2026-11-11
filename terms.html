@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Terms of Service — Willbound</title>
+    <link rel="icon" type="image/png" href="./app_icon.png">
+    <style>
+        :root {
+            --bg-primary: #0b1623;
+            --bg-secondary: #122236;
+            --bg-card: rgba(18, 34, 54, 0.85);
+            --text-primary: #f0f6fc;
+            --text-secondary: #9bb1c9;
+            --text-muted: #6e87a2;
+            --accent: #1d9bf0;
+            --accent-light: #5ac8fa;
+            --accent-glow: rgba(29, 155, 240, 0.2);
+            --border-color: rgba(90, 200, 250, 0.16);
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: radial-gradient(circle at 50% 0%, #173250 0%, var(--bg-primary) 70%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Subtle vertical stripes inspired by app icon */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: repeating-linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0.025) 0px,
+                rgba(255, 255, 255, 0.025) 1px,
+                transparent 1px,
+                transparent 28px
+            );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(11, 22, 35, 0.82);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-inner {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .brand-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: #ffffff;
+        }
+
+        .brand-tagline {
+            font-size: 0.78rem;
+            color: var(--accent-light);
+            font-weight: 500;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .doc-links {
+            display: flex;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 4px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .doc-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 7px;
+            transition: all 0.2s ease;
+        }
+
+        .doc-link:hover {
+            color: var(--text-primary);
+        }
+
+        .doc-link.active {
+            background: var(--accent-glow);
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+
+        .lang-switch {
+            display: inline-flex;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 3px;
+        }
+
+        .lang-btn {
+            appearance: none;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 6px 11px;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--accent), #0077cc);
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(29, 155, 240, 0.35);
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            max-width: 920px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 36px 20px 64px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 32px;
+            padding: 28px 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 16px;
+            margin-bottom: 14px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-size: clamp(1.65rem, 3.5vw, 2.25rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .content-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow);
+        }
+
+        section {
+            margin-bottom: 28px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        section:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 1.22rem;
+            font-weight: 700;
+            color: var(--accent-light);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        p {
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-size: 0.97rem;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul {
+            margin: 10px 0 12px 22px;
+            color: var(--text-primary);
+            font-size: 0.96rem;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        li strong {
+            color: #ffffff;
+        }
+
+        .callout {
+            background: rgba(29, 155, 240, 0.09);
+            border-left: 3px solid var(--accent-light);
+            padding: 14px 16px;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: 14px 0;
+            font-size: 0.94rem;
+            color: var(--text-primary);
+        }
+
+        a.inline-link {
+            color: var(--accent-light);
+            text-decoration: none;
+            border-bottom: 1px dashed rgba(90, 200, 250, 0.5);
+        }
+
+        a.inline-link:hover {
+            color: #ffffff;
+            border-bottom-style: solid;
+        }
+
+        footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid var(--border-color);
+            background: rgba(11, 22, 35, 0.9);
+            padding: 24px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.86rem;
+        }
+
+        .footer-links {
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-light);
+        }
+
+        [data-lang] {
+            display: none;
+        }
+
+        html[lang="en"] [data-lang="en"],
+        html[lang="vi"] [data-lang="vi"] {
+            display: block;
+        }
+
+        html[lang="en"] span[data-lang="en"],
+        html[lang="vi"] span[data-lang="vi"] {
+            display: inline;
+        }
+
+        @media (max-width: 640px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .nav-controls {
+                justify-content: space-between;
+            }
+            .content-card {
+                padding: 22px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a class="brand" href="./terms.html" id="brand-link">
+                <img class="brand-icon" src="./app_icon.png" alt="Willbound Icon">
+                <div class="brand-text">
+                    <span class="brand-name">Willbound</span>
+                    <span class="brand-tagline" data-lang="en">Focus &amp; Screen Time Control</span>
+                    <span class="brand-tagline" data-lang="vi">Tập trung &amp; Kiểm soát thời gian màn hình</span>
+                </div>
+            </a>
+            <div class="nav-controls">
+                <nav class="doc-links" aria-label="Legal documents">
+                    <a class="doc-link" id="nav-privacy" href="./privacy_policy.html">
+                        <span data-lang="en">Privacy Policy</span>
+                        <span data-lang="vi">Chính sách Bảo mật</span>
+                    </a>
+                    <a class="doc-link active" id="nav-terms" href="./terms.html">
+                        <span data-lang="en">Terms of Service</span>
+                        <span data-lang="vi">Điều khoản Dịch vụ</span>
+                    </a>
+                </nav>
+                <div class="lang-switch" role="group" aria-label="Language selector">
+                    <button type="button" class="lang-btn" data-set-lang="en" id="btn-lang-en">EN</button>
+                    <button type="button" class="lang-btn" data-set-lang="vi" id="btn-lang-vi">VI</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero">
+            <img class="hero-icon" src="./app_icon.png" alt="Willbound App Icon">
+            <h1 data-lang="en">Terms of Service</h1>
+            <h1 data-lang="vi">Điều khoản Dịch vụ</h1>
+            <p class="hero-meta" data-lang="en">Effective Date: November 10, 2026 &bull; Last Updated: November 10, 2026</p>
+            <p class="hero-meta" data-lang="vi">Ngày có hiệu lực: 10/11/2026 &bull; Cập nhật lần cuối: 10/11/2026</p>
+        </div>
+
+        <!-- ENGLISH CONTENT -->
+        <article class="content-card" data-lang="en">
+            <section>
+                <h2>1. Acceptance of Terms</h2>
+                <p>By downloading, installing, accessing, or using the <strong>Willbound</strong> mobile application and related backend services (collectively, the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the Service.</p>
+            </section>
+
+            <section>
+                <h2>2. Description of the Service</h2>
+                <p>Willbound is a digital well-being, focus timer, and application-blocking tool that empowers users to manage screen time, configure recurring focus schedules, activate Deep Focus sessions, and track personal focus habits.</p>
+                <div class="callout">
+                    <strong>Important Safety Notice:</strong> Willbound allows you to voluntarily restrict access to selected applications on your device. You are solely responsible for ensuring that you do not block critical communication, medical, navigation, or emergency services required for your personal safety.
+                </div>
+            </section>
+
+            <section>
+                <h2>3. User Accounts &amp; Eligibility</h2>
+                <ul>
+                    <li>You must be at least 13 years of age (or the applicable age of digital consent in your country) to use the Service.</li>
+                    <li>You may use Willbound via an anonymous guest session or link an authenticated account (such as Apple Sign-In or Google Sign-In).</li>
+                    <li>You are responsible for maintaining the security of your device and any linked authentication credentials.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>4. Willbound Pro Subscriptions &amp; Billing</h2>
+                <p>Willbound offers optional paid upgrades ("Willbound Pro") that unlock advanced blocking schedules, strict Deep Focus modes, and extended features:</p>
+                <ul>
+                    <li><strong>In-App Purchases:</strong> Subscriptions and purchases are processed directly through the Apple App Store or Google Play Store ("App Provider") using the payment method linked to your store account.</li>
+                    <li><strong>Automatic Renewal:</strong> Auto-renewable subscriptions automatically renew at the end of each billing cycle unless auto-renew is turned off at least 24 hours before the end of the current period.</li>
+                    <li><strong>Managing &amp; Canceling Subscriptions:</strong> You can manage or cancel your subscription at any time in your Apple ID or Google Play account settings. Deleting the app from your device does not automatically cancel an active subscription.</li>
+                    <li><strong>Refunds:</strong> All billing inquiries and refund requests are governed by the policies of the respective App Provider (Apple or Google).</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>5. Acceptable Use</h2>
+                <p>When using Willbound, you agree not to:</p>
+                <ul>
+                    <li>Reverse engineer, decompile, tamper with, or attempt to extract the source code or security credentials of the application;</li>
+                    <li>Forge, replay, or manipulate transaction receipts, entitlement events, or device credentials;</li>
+                    <li>Interfere with or disrupt our servers, APIs, or notification infrastructure;</li>
+                    <li>Use the Service for any unlawful, harmful, or fraudulent purpose.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>6. Intellectual Property Rights</h2>
+                <p>All rights, title, and interest in and to Willbound—including its software, visual design, app icon, trademarks, algorithms, and documentation—are and remain the exclusive property of Willbound and its licensors. We grant you a personal, non-exclusive, non-transferable, revocable license to use the app on devices you own or control.</p>
+            </section>
+
+            <section>
+                <h2>7. Disclaimer of Warranties</h2>
+                <p>The Service is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, whether express or implied. Because app-blocking functionality relies on underlying operating system frameworks (such as Apple Screen Time / FamilyControls and Android system permissions), we cannot guarantee uninterrupted or error-free blocking under all OS versions or device configurations.</p>
+            </section>
+
+            <section>
+                <h2>8. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by applicable law, Willbound and its affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages—including missed notifications, blocked third-party application alerts, loss of productivity, or loss of data—arising out of your configuration or use of the Service.</p>
+            </section>
+
+            <section>
+                <h2>9. Modifications to the Service &amp; Terms</h2>
+                <p>We reserve the right to update, modify, or discontinue parts of the Service or revise these Terms at any time. Continued use of Willbound after revised Terms become effective constitutes your acceptance of the updated Terms.</p>
+            </section>
+
+            <section>
+                <h2>10. Contact Information</h2>
+                <p>If you have any questions about these Terms of Service, please contact us at:</p>
+                <p><strong>Email:</strong> <a class="inline-link" href="mailto:support@tipai.tech">support@tipai.tech</a></p>
+            </section>
+        </article>
+
+        <!-- VIETNAMESE CONTENT -->
+        <article class="content-card" data-lang="vi">
+            <section>
+                <h2>1. Chấp nhận Điều khoản</h2>
+                <p>Bằng việc tải xuống, cài đặt, truy cập hoặc sử dụng ứng dụng di động <strong>Willbound</strong> cùng các dịch vụ phụ trợ liên quan (gọi chung là "Dịch vụ"), bạn đồng ý tuân thủ và chịu sự ràng buộc của Điều khoản Dịch vụ này ("Điều khoản"). Nếu bạn không đồng ý với bất kỳ nội dung nào trong Điều khoản này, vui lòng ngừng sử dụng Dịch vụ.</p>
+            </section>
+
+            <section>
+                <h2>2. Mô tả Dịch vụ</h2>
+                <p>Willbound là công cụ hỗ trợ tập trung, quản lý thời gian sử dụng màn hình (Screen Time) và chặn ứng dụng gây xao nhãng, giúp người dùng thiết lập lịch trình tập trung định kỳ, kích hoạt chế độ Tập trung sâu (Deep Focus) và theo dõi thói quen làm việc cá nhân.</p>
+                <div class="callout">
+                    <strong>Lưu ý An toàn Quan trọng:</strong> Willbound cho phép bạn chủ động giới hạn quyền truy cập vào các ứng dụng do chính bạn lựa chọn. Bạn hoàn toàn chịu trách nhiệm đảm bảo không chặn các ứng dụng liên lạc khẩn cấp, y tế, điều hướng hoặc các dịch vụ thiết yếu cho sự an toàn của bản thân.
+                </div>
+            </section>
+
+            <section>
+                <h2>3. Tài khoản Người dùng &amp; Điều kiện Sử dụng</h2>
+                <ul>
+                    <li>Bạn phải đủ từ 13 tuổi trở lên (hoặc độ tuổi hợp pháp tối thiểu tại quốc gia của bạn) để sử dụng Dịch vụ.</li>
+                    <li>Bạn có thể sử dụng Willbound thông qua phiên khách ẩn danh hoặc liên kết với tài khoản định danh (Apple Sign-In, Google Sign-In).</li>
+                    <li>Bạn chịu trách nhiệm bảo mật thiết bị cá nhân và thông tin đăng nhập tài khoản của mình.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>4. Gói Đăng ký Willbound Pro &amp; Thanh toán</h2>
+                <p>Willbound cung cấp các gói nâng cấp trả phí tùy chọn ("Willbound Pro") để mở khóa các tính năng nâng cao:</p>
+                <ul>
+                    <li><strong>Thanh toán trong ứng dụng (IAP):</strong> Mọi giao dịch được xử lý trực tiếp qua Apple App Store hoặc Google Play Store ("Nhà cung cấp Chợ ứng dụng") bằng phương thức thanh toán gắn với tài khoản cửa hàng của bạn.</li>
+                    <li><strong>Tự động gia hạn:</strong> Các gói thuê bao định kỳ sẽ tự động gia hạn vào cuối mỗi chu kỳ thanh toán, trừ khi bạn tắt tính năng tự động gia hạn ít nhất 24 giờ trước khi kỳ hạn hiện tại kết thúc.</li>
+                    <li><strong>Quản lý &amp; Hủy gói đăng ký:</strong> Bạn có thể quản lý hoặc hủy gói đăng ký bất cứ lúc nào trong phần Cài đặt tài khoản Apple ID hoặc Google Play trên thiết bị. Việc gỡ cài đặt ứng dụng khỏi điện thoại không tự động hủy gói đăng ký đang hoạt động.</li>
+                    <li><strong>Hoàn tiền:</strong> Các yêu cầu hỗ trợ thanh toán và hoàn tiền được thực hiện theo chính sách của Apple App Store hoặc Google Play Store.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>5. Quy tắc Sử dụng Hợp lệ</h2>
+                <p>Khi sử dụng Willbound, bạn đồng ý không thực hiện các hành vi sau:</p>
+                <ul>
+                    <li>Dịch ngược, tháo gỡ mã nguồn, can thiệp trái phép hoặc cố gắng trích xuất mã nguồn và khóa bảo mật của ứng dụng;</li>
+                    <li>Giả mạo, phát lại hoặc chỉnh sửa trái phép biên lai giao dịch, sự kiện quyền lợi (entitlement events) hoặc thông tin xác thực thiết bị;</li>
+                    <li>Gây cản trở, làm gián đoạn hoặc quá tải hệ thống máy chủ, API và hạ tầng thông báo của chúng tôi;</li>
+                    <li>Sử dụng Dịch vụ cho bất kỳ mục đích vi phạm pháp luật hoặc gian lận nào.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>6. Quyền Sở hữu Trí tuệ</h2>
+                <p>Mọi quyền sở hữu trí tuệ đối với Willbound—bao gồm mã nguồn phần mềm, giao diện thiết kế, biểu tượng ứng dụng (app icon), nhãn hiệu, thuật toán và tài liệu đi kèm—thuộc quyền sở hữu độc quyền của Willbound và các bên cấp phép. Chúng tôi cấp cho bạn giấy phép cá nhân, không độc quyền, không chuyển nhượng và có thể thu hồi để sử dụng ứng dụng trên thiết bị mà bạn sở hữu hoặc kiểm soát.</p>
+            </section>
+
+            <section>
+                <h2>7. Từ chối Bảo đảm</h2>
+                <p>Dịch vụ được cung cấp trên cơ sở "NGUYÊN TRẠNG" (AS IS) và "NHƯ HIỆN CÓ" (AS AVAILABLE). Do tính năng chặn ứng dụng phụ thuộc trực tiếp vào các khung hệ thống của hệ điều hành di động (như Apple Screen Time / FamilyControls và quyền hệ thống trên Android), chúng tôi không cam kết tính năng chặn sẽ hoạt động không gián đoạn hoặc không có lỗi trên mọi phiên bản hệ điều hành hay cấu hình thiết bị.</p>
+            </section>
+
+            <section>
+                <h2>8. Giới hạn Trách nhiệm</h2>
+                <p>Trong phạm vi tối đa được pháp luật hiện hành cho phép, Willbound và các đơn vị liên kết không chịu trách nhiệm đối với bất kỳ thiệt hại gián tiếp, ngẫu nhiên, đặc biệt hoặc hệ quả nào—bao gồm việc bỏ lỡ thông báo, bị chặn thông báo từ ứng dụng bên thứ ba do bạn thiết lập, giảm năng suất hoặc mất dữ liệu—phát sinh từ việc bạn cấu hình hoặc sử dụng Dịch vụ.</p>
+            </section>
+
+            <section>
+                <h2>9. Sửa đổi Dịch vụ &amp; Điều khoản</h2>
+                <p>Chúng tôi có quyền cập nhật, thay đổi tính năng của Dịch vụ hoặc sửa đổi Điều khoản này theo thời gian. Việc bạn tiếp tục sử dụng Willbound sau khi Điều khoản sửa đổi có hiệu lực đồng nghĩa với việc bạn chấp nhận các nội dung cập nhật đó.</p>
+            </section>
+
+            <section>
+                <h2>10. Thông tin Liên hệ</h2>
+                <p>Nếu bạn có bất kỳ câu hỏi nào về Điều khoản Dịch vụ này, vui lòng liên hệ với chúng tôi qua:</p>
+                <p><strong>Email:</strong> <a class="inline-link" href="mailto:support@tipai.tech">support@tipai.tech</a></p>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="./privacy_policy.html" id="footer-privacy">
+                <span data-lang="en">Privacy Policy</span>
+                <span data-lang="vi">Chính sách Bảo mật</span>
+            </a>
+            <a href="./terms.html" id="footer-terms">
+                <span data-lang="en">Terms of Service</span>
+                <span data-lang="vi">Điều khoản Dịch vụ</span>
+            </a>
+        </div>
+        <p data-lang="en">&copy; 2026 Willbound. All rights reserved.</p>
+        <p data-lang="vi">&copy; 2026 Willbound. Bảo lưu mọi quyền.</p>
+    </footer>
+
+    <script>
+        (function () {
+            var SUPPORTED_LANGS = ['en', 'vi'];
+            var TITLES = {
+                en: 'Terms of Service — Willbound',
+                vi: 'Điều khoản Dịch vụ — Willbound'
+            };
+
+            function normalizeLang(raw) {
+                if (!raw) return null;
+                var clean = String(raw).toLowerCase().trim();
+                if (clean.indexOf('vi') === 0 || clean === 'vn') return 'vi';
+                if (clean.indexOf('en') === 0) return 'en';
+                return null;
+            }
+
+            function getLangFromQuery() {
+                var search = window.location.search || '';
+                var hash = window.location.hash || '';
+                var combined = search + '&' + hash.replace(/^#/, '');
+
+                if (typeof URLSearchParams !== 'undefined') {
+                    var params = new URLSearchParams(search.replace(/^[?&]+/, ''));
+                    var qLang = normalizeLang(params.get('lang'));
+                    if (qLang) return qLang;
+                }
+
+                var match = combined.match(/(?:^|[?&])lang=([^&#]+)/i);
+                if (match && match[1]) {
+                    try {
+                        return normalizeLang(decodeURIComponent(match[1]));
+                    } catch (e) {
+                        return normalizeLang(match[1]);
+                    }
+                }
+                return null;
+            }
+
+            function detectInitialLang() {
+                var queryLang = getLangFromQuery();
+                if (queryLang) return queryLang;
+
+                try {
+                    var saved = normalizeLang(localStorage.getItem('willbound_lang'));
+                    if (saved) return saved;
+                } catch (e) {}
+
+                var navLang = normalizeLang(navigator.language || navigator.userLanguage);
+                return navLang || 'en';
+            }
+
+            function updateInternalLinks(lang) {
+                var linkIds = ['brand-link', 'nav-privacy', 'nav-terms', 'footer-privacy', 'footer-terms'];
+                for (var i = 0; i < linkIds.length; i++) {
+                    var el = document.getElementById(linkIds[i]);
+                    if (!el) continue;
+                    var baseHref = el.getAttribute('href').split('?')[0];
+                    el.setAttribute('href', baseHref + '?lang=' + lang);
+                }
+            }
+
+            function applyLanguage(lang, updateUrl) {
+                if (SUPPORTED_LANGS.indexOf(lang) === -1) {
+                    lang = 'en';
+                }
+
+                document.documentElement.setAttribute('lang', lang);
+                document.title = TITLES[lang] || TITLES.en;
+
+                var buttons = document.querySelectorAll('[data-set-lang]');
+                for (var i = 0; i < buttons.length; i++) {
+                    var btn = buttons[i];
+                    var isCurrent = btn.getAttribute('data-set-lang') === lang;
+                    btn.classList.toggle('active', isCurrent);
+                    btn.setAttribute('aria-pressed', isCurrent ? 'true' : 'false');
+                }
+
+                try {
+                    localStorage.setItem('willbound_lang', lang);
+                } catch (e) {}
+
+                updateInternalLinks(lang);
+
+                if (updateUrl && window.history && window.history.replaceState) {
+                    try {
+                        var url = new URL(window.location.href);
+                        url.searchParams.set('lang', lang);
+                        window.history.replaceState({ lang: lang }, '', url.toString());
+                    } catch (e) {}
+                }
+            }
+
+            var initialLang = detectInitialLang();
+            applyLanguage(initialLang, false);
+
+            var langButtons = document.querySelectorAll('[data-set-lang]');
+            for (var i = 0; i < langButtons.length; i++) {
+                langButtons[i].addEventListener('click', function (evt) {
+                    var targetLang = evt.currentTarget.getAttribute('data-set-lang');
+                    applyLanguage(targetLang, true);
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
